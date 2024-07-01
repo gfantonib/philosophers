@@ -14,13 +14,22 @@ It was originally formulated in 1965 by Edsger Dijkstra as a student exam exerci
   </div>
 </div> -->
 
-<p align="center">
+<!-- <p align="center">
   <img src="image/edsger_dijkstra.png" alt="Image 1" width="200" style="margin-right: 10px;">
   <img src="image/tony_hoare.png" alt="Image 2" width="200">
 </p>
 <p align="center">
   <span>Edsger Dijkstra</span>
   <span style="margin-left: 210px;">Tony Hoare</span>
+</p> -->
+
+<p align="center">
+  <img src="image/edsger_dijkstra.png" alt="Image 1" width="200" style="margin-right: 20px;">
+  <img src="image/tony_hoare.png" alt="Image 2" width="200" style="margin-left: 20px;">
+</p>
+<p align="center">
+  <span style="display:inline-block; width: 220px;">Edsger Dijkstra</span>
+  <span style="display:inline-block; width: 220px;">Tony Hoare</span>
 </p>
 
 ##### Rules of the simulation:
