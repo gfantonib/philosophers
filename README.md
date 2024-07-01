@@ -17,7 +17,7 @@ Communicating Sequential Processes\
 C. A. R. Hoare
 
 <div align="center">
-  <img src="image/philosophers_table.png" alt="Image 1" style="width: 600px;">
+  <img src="image/philosophers_table.png" alt="Image 1" style="width: 1000px;">
   <p>Philosophers Table</p>
 </div>
 
