@@ -23,14 +23,25 @@ It was originally formulated in 1965 by Edsger Dijkstra as a student exam exerci
   <span style="margin-left: 210px;">Tony Hoare</span>
 </p> -->
 
-<p align="center">
-  <img src="image/edsger_dijkstra.png" alt="Image 1" width="200" style="margin-right: 20px;">
-  <img src="image/tony_hoare.png" alt="Image 2" width="200" style="margin-left: 20px;">
+<!-- <p align="center">
+  <img src="image/edsger_dijkstra.png" alt="Image 1" width="200" style="margin-right: 100px;">
+  <img src="image/tony_hoare.png" alt="Image 2" width="200" style="margin-left: 100px;">
 </p>
 <p align="center">
   <span style="display:inline-block; width: 220px;">Edsger Dijkstra</span>
   <span style="display:inline-block; width: 220px;">Tony Hoare</span>
-</p>
+</p> -->
+
+<div style="display: flex; justify-content: center; align-items: flex-end;">
+  <div style="text-align: center; margin-right: 100px;">
+    <img src="image/edsger_dijkstra.png" alt="Image 1" style="width: 200px;">
+    <p>Edsger Dijkstra</p>
+  </div>
+  <div style="text-align: center;">
+    <img src="image/tony_hoare.png" alt="Image 2" style="width: 200px;">
+    <p>Tony Hoare</p>
+  </div>
+</div>
 
 ##### Rules of the simulation:
 - One or more philosophers sit at a round table. There is a large bowl of spaghetti in the middle of the table.
