@@ -5,11 +5,11 @@ It was originally formulated in 1965 by Edsger Dijkstra as a student exam exerci
 
 <div style="display: flex; justify-content: center;">
   <div style="text-align: center; margin-right: 5%;">
-    <img src="image/edsger_dijkstra.png" alt="Image 1" style="width: 300px;" />
+    <img src="image/edsger_dijkstra.png" alt="Image 1" style="width: 200px;" />
     <p>Edsger Dijkstra</p>
   </div>
   <div style="text-align: center;">
-    <img src="image/tony_hoare.png" alt="Image 2" style="width: 300px;" />
+    <img src="image/tony_hoare.png" alt="Image 2" style="width: 200px;" />
     <p>Tony Hoare</p>
   </div>
 </div>
