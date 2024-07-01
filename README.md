@@ -1,5 +1,5 @@
 # philosophers
-This project aims to create a simulation of the famous 'Dining Philosophers' problem. In computer science, the dining philosophers problem is an example problem often used in concurrent algorithm design to illustrate synchronization issues and techniques for resolving them. It was originally formulated in 1965 by Edsger Dijkstra as a student exam exercise, presented in terms of computers competing for access to tape drive peripherals. Soon after, Tony Hoare gave the problem its present form.
+This project aims to create a simulation of the famous *Dining Philosophers* problem. In computer science, the dining philosophers problem is an example problem often used in concurrent algorithm design to illustrate synchronization issues and techniques for resolving them. It was originally formulated in 1965 by *Edsger Dijkstra* as a student exam exercise, presented in terms of computers competing for access to tape drive peripherals. Soon after, *Tony Hoare* gave the problem its present form.
 
 <div align="center">
   <div>
@@ -13,8 +13,8 @@ This project aims to create a simulation of the famous 'Dining Philosophers' pro
 </div>
 
 "In ancient times, a wealthy philanthropist endowed a College to accommodate five eminent philosophers. Each philosopher had a room in which he could engage in his professional activity of thinking; there was also a common dining room, furnished with a circular table, surrounded by five chairs, each labelled by the name of the philosopher who was to sit in it. The names of the philosophers were PHIL0, PHIL1, PHIL2, PHIL3, PHIL4, and they were disposed in this order anticlockwise around the table. To the left of each philosopher there wa laid a golden fork, and in the centre stood a large bowl of spaghetti, which was constantly replenished"\
-Communicating Sequential Processes\
-C. A. R. Hoare
+*Communicating Sequential Processes*\
+*C. A. R. Hoare*
 
 <div align="center">
   <img src="image/philosophers_table.png" alt="Image 1" style="width: 1000px;">
