@@ -3,7 +3,7 @@ This project aims to create a simulation of the famous 'Dining Philosophers' pro
 In computer science, the dining philosophers problem is an example problem often used in concurrent algorithm design to illustrate synchronization issues and techniques for resolving them.\
 It was originally formulated in 1965 by Edsger Dijkstra as a student exam exercise, presented in terms of computers competing for access to tape drive peripherals. Soon after, Tony Hoare gave the problem its present form.
 
-<div style="display: flex; justify-content: center;">
+<!-- <div style="display: flex; justify-content: center;">
   <div style="text-align: center; margin-right: 5%;">
     <img src="image/edsger_dijkstra.png" alt="Image 1" style="width: 200px;" />
     <p>Edsger Dijkstra</p>
@@ -12,7 +12,16 @@ It was originally formulated in 1965 by Edsger Dijkstra as a student exam exerci
     <img src="image/tony_hoare.png" alt="Image 2" style="width: 200px;" />
     <p>Tony Hoare</p>
   </div>
-</div>
+</div> -->
+
+<p align="center">
+  <img src="image/edsger_dijkstra.png" alt="Image 1" width="200" style="margin-right: 10px;">
+  <img src="image/tony_hoare.png" alt="Image 2" width="200">
+</p>
+<p align="center">
+  <span>Edsger Dijkstra</span>
+  <span style="margin-left: 210px;">Tony Hoare</span>
+</p>
 
 ##### Rules of the simulation:
 - One or more philosophers sit at a round table. There is a large bowl of spaghetti in the middle of the table.
