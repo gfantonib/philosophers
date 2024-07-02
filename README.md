@@ -12,15 +12,6 @@ This project aims to create a simulation of the famous *Dining Philosophers* pro
   </div>
 </div>
 
-"In ancient times, a wealthy philanthropist endowed a College to accommodate five eminent philosophers. Each philosopher had a room in which he could engage in his professional activity of thinking; there was also a common dining room, furnished with a circular table, surrounded by five chairs, each labelled by the name of the philosopher who was to sit in it. The names of the philosophers were PHIL0, PHIL1, PHIL2, PHIL3, PHIL4, and they were disposed in this order anticlockwise around the table. To the left of each philosopher there wa laid a golden fork, and in the centre stood a large bowl of spaghetti, which was constantly replenished"\
-*Communicating Sequential Processes*\
-*C. A. R. Hoare*
-
-<div align="center">
-  <img src="image/philosophers_table.png" alt="Image 1" style="width: 1000px;">
-  <p>Philosophers Table</p>
-</div>
-
 ##### Rules of the simulation:
 - One or more philosophers sit at a round table. There is a large bowl of spaghetti in the middle of the table.
 - The philosophers alternatively eat, think, or sleep. \
