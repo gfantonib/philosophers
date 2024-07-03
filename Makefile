@@ -5,7 +5,7 @@ SRCPATH = source
 INCPATH = include
 HEADER = -I$(INCPATH)
 OBJPATH = object
-OBJ = $(patsubst %.c, $(OBJPATH)/%.o, $(SRCFILES))
+OBJ = $(SRCFILES:%.c=$(OBJPATH)/%.o) #$(patsubst %.c, $(OBJPATH)/%.o, $(SRCFILES))
 SRCFILES = main.c
 
 all: $(NAME)
