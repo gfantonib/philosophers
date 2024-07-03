@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 16:46:44 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/02 17:25:08 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/02 22:14:49 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ int	main(int argc, char *argv[])
 
 static void	check_valid_arg(int argc, char *argv[])
 {
-	printf("still in progress\n");
+	argc = 0;
+	argv = NULL;
+	printf("argc = %d | argv = %p\n", argc, argv);
 }

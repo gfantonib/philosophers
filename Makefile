@@ -1,11 +1,12 @@
 NAME = philo
 CC = cc
+CFLAGS = -Wall -Wextra -Werror
 SRCPATH = source
 INCPATH = include
 HEADER = -I$(INCPATH)
 OBJPATH = object
-OBJ = $(patsubst %.c, $(OBJPATH)/%.o, $(SRC_FILES))
-SRC_FILES = main.c
+OBJ = $(patsubst %.c, $(OBJPATH)/%.o, $(SRCFILES))
+SRCFILES = main.c
 
 all: $(NAME)
 
@@ -13,7 +14,7 @@ $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 $(OBJPATH)/%.o: $(SRCPATH)/%.c | $(OBJPATH)
-	$(CC) $(HEADER) -c $< -o $@
+	$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
 
 $(OBJPATH):
 	mkdir -p $(OBJPATH)
