@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:44:26 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/04 17:03:52 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/04 19:23:27 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,11 @@ void	destroy_mutex(t_program *program, pthread_mutex_t *forks)
 		pthread_mutex_destroy(&forks[i]);
 		i++;
 	}
+}
+
+void	print_state_change(char *message, t_philo *philo)
+{
+	pthread_mutex_lock(philo->print_mtx);
+	printf("%d %s\n", philo->id, message);
+	pthread_mutex_unlock(philo->print_mtx);
 }
