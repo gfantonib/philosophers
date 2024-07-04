@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 17:24:21 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/04 17:23:28 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/04 19:23:37 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <pthread.h>
-#include <stdio.h> // remove
+# include <stdio.h>
 
 typedef struct s_philo
 {
 	int				id;
+	int				is_eating;
 	pthread_t		thread;
 	pthread_mutex_t	*r_fork;
 	pthread_mutex_t	*l_fork;
@@ -56,5 +57,6 @@ void	print_message(char *message, int fd);
 int		ft_atoi(const char *str);
 size_t	ft_strlen(const char *s);
 void	destroy_mutex(t_program *program, pthread_mutex_t *forks);
+void	print_state_change(char *message, t_philo *philo);
 
 #endif
