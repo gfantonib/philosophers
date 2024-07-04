@@ -6,7 +6,7 @@ INCPATH = include
 HEADER = -I$(INCPATH)
 OBJPATH = object
 OBJ = $(SRCFILES:%.c=$(OBJPATH)/%.o) #$(patsubst %.c, $(OBJPATH)/%.o, $(SRCFILES))
-SRCFILES = main.c 01_check_valid_arg.c utils.c
+SRCFILES = main.c 01_check_valid_arg.c 02_store_data.c utils.c
 
 all: $(NAME)
 

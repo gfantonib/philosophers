@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   02_store_data.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 16:46:44 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/04 09:26:50 by gfantoni         ###   ########.fr       */
+/*   Created: 2024/07/04 09:24:51 by gfantoni          #+#    #+#             */
+/*   Updated: 2024/07/04 09:36:19 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char *argv[])
+void	store_data(char *argv[], t_program *program)
 {
-	t_program program;
-	
-	check_valid_arg(argc, argv);
-	store_data(++argv, &program);
-	return (0);
+	program->nbr_of_philo = ft_atoi(argv[0]);
+	program->time_to_die = ft_atoi(argv[1]);
+	program->time_to_eat = ft_atoi(argv[2]);
+	program->time_to_sleep = ft_atoi(argv[3]);
+	program->must_eat = -1;
+	if (argv[4])
+		program->must_eat = ft_atoi(argv[4]);
 }

@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 17:24:21 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/03 17:39:02 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/04 09:32:21 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,21 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-// # include <stdarg.h>
+
+typedef struct s_program
+{
+	int	nbr_of_philo;
+	int	time_to_die;
+	int	time_to_eat;
+	int	time_to_sleep;
+	int	must_eat;
+}	t_program;
 
 // 01_check_valid_arg.c
 void	check_valid_arg(int argc, char *argv[]);
+
+// 02_store_data.c
+void	store_data(char *argv[], t_program *program);
 
 // utils_1.c
 void	print_message(char *message, int fd);
