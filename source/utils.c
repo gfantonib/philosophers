@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:44:26 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/03 17:38:40 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:03:52 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,17 @@ size_t	ft_strlen(const char *s)
 	while (s[c])
 		c++;
 	return (c);
+}
+
+void	destroy_mutex(t_program *program, pthread_mutex_t *forks)
+{
+	int	i;
+	
+	pthread_mutex_destroy(&program->print_mtx);
+	i = 0;
+	while (i < program->nbr_of_philo)
+	{
+		pthread_mutex_destroy(&forks[i]);
+		i++;
+	}
 }
