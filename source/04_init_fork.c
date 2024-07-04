@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   04_init_fork.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 16:46:44 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/04 12:14:55 by gfantoni         ###   ########.fr       */
+/*   Created: 2024/07/04 12:09:56 by gfantoni          #+#    #+#             */
+/*   Updated: 2024/07/04 12:35:46 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char *argv[])
+void	init_fork(pthread_mutex_t *forks, t_philo *philos, t_program *program)
 {
-	t_program		program;
-	t_philo			philo_array[200];
-	pthread_mutex_t	fork_array[200];
-	
-	check_valid_arg(argc, argv);
-	store_data(++argv, &program);
-	init_philo(philo_array, &program);
-	init_fork(fork_array, philo_array, &program);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (i < program->nbr_of_philo)
+	{
+		philos[i].l_fork = forks[i];
+		if (i == 0)
+			philos[i].r_fork = forks[program->nbr_of_philo - 1];
+		else
+			philos[i].r_fork = forks[i - 1];
+		i++;
+	}
 }
