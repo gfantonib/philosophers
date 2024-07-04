@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 17:24:21 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/04 09:32:21 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/04 11:19:55 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct s_philo
+{
+	int			id;
+	pthread_t	thread;
+}	t_philo;
 
 typedef struct s_program
 {
@@ -30,6 +36,9 @@ void	check_valid_arg(int argc, char *argv[]);
 
 // 02_store_data.c
 void	store_data(char *argv[], t_program *program);
+
+// 03_init_philo.c
+void	init_philo(t_philo *philo_array, t_program *program);
 
 // utils_1.c
 void	print_message(char *message, int fd);
