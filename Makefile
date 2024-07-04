@@ -5,15 +5,19 @@ SRCPATH = source
 INCPATH = include
 HEADER = -I$(INCPATH)
 OBJPATH = object
-OBJ = $(SRCFILES:%.c=$(OBJPATH)/%.o) #$(patsubst %.c, $(OBJPATH)/%.o, $(SRCFILES))
-SRCFILES = main.c 01_check_valid_arg.c 02_store_data.c utils.c
+MAINOBJ = $(OBJPATH)/main.o
+OBJ = $(SRCFILES:%.c=$(OBJPATH)/%.o)
+SRCFILES = 01_check_valid_arg.c 02_store_data.c utils.c
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+$(NAME): $(MAINOBJ) $(OBJ)
+	$(CC) $(OBJ) $(MAINOBJ) -o $(NAME)
 
-$(OBJPATH)/%.o: $(SRCPATH)/%.c | $(OBJPATH)
+$(OBJPATH)/main.o: main.c | $(OBJPATH)
+	$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
+
+$(OBJPATH)/%.o: $(SRCPATH)/%.c
 	$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
 
 $(OBJPATH):
