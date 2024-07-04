@@ -25,6 +25,10 @@ arg_list = [["5", "-1", "-1", "-1"]]
 stdout_ref_list = ["ok\n"]
 stderr_ref_list = [""]
 
+arg_list.append(["200", "-1", "-1", "-1"])
+stdout_ref_list.append("ok\n")
+stderr_ref_list.append("")
+
 arg_list.append(["10", "-1", "-1", "-1"])
 stdout_ref_list.append("ok\n")
 stderr_ref_list.append("")
@@ -37,7 +41,7 @@ arg_list.append(["2", "-1", "-1", "-1"])
 stdout_ref_list.append("ok\n")
 stderr_ref_list.append("")
 
-arg_list.append(["2", "-1", "-1", "-1"])
+arg_list.append(["1", "-1", "-1", "-1"])
 stdout_ref_list.append("ok\n")
 stderr_ref_list.append("")
 
