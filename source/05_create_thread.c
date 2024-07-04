@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:57:56 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/04 17:27:03 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/04 19:23:20 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,19 @@
 void	*philo_routine(void *arg)
 {
 	t_philo	*philo;
-
+	
 	philo = (t_philo *)arg;
-	pthread_mutex_lock(philo->print_mtx);
-	printf("%d\n", philo->id);
-	pthread_mutex_unlock(philo->print_mtx);
+	if (philo->id % 2 == 0)
+		sleep(1);
+	pthread_mutex_lock(philo->r_fork);
+	print_state_change("has taken r_fork", philo);
+	pthread_mutex_lock(philo->l_fork);
+	print_state_change("has taken l_fork", philo);
+	philo->is_eating = philo->id;
+	print_state_change("is eating", philo);
+	printf("%d\n", philo->is_eating);
+	pthread_mutex_unlock(philo->l_fork);
+	pthread_mutex_unlock(philo->r_fork);
 	return (arg);
 }
 
