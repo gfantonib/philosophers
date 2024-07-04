@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 17:24:21 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/04 19:23:37 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/04 20:13:28 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <pthread.h>
 # include <stdio.h>
+# include <sys/time.h>
 
 typedef struct s_philo
 {
@@ -57,6 +58,7 @@ void	print_message(char *message, int fd);
 int		ft_atoi(const char *str);
 size_t	ft_strlen(const char *s);
 void	destroy_mutex(t_program *program, pthread_mutex_t *forks);
-void	print_state_change(char *message, t_philo *philo);
+void	print_state_change(char *message, t_philo *philo, size_t time);
+size_t	get_current_time(void);
 
 #endif
