@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:57:56 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/04 19:23:20 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/04 19:51:46 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*philo_routine(void *arg)
 	
 	philo = (t_philo *)arg;
 	if (philo->id % 2 == 0)
-		sleep(1);
+		usleep(100);
 	pthread_mutex_lock(philo->r_fork);
 	print_state_change("has taken r_fork", philo);
 	pthread_mutex_lock(philo->l_fork);
