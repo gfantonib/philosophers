@@ -1,6 +1,6 @@
 NAME = philo
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -pthread
 SRCPATH = source
 INCPATH = include
 HEADER = -I$(INCPATH)
@@ -12,7 +12,7 @@ SRCFILES = 01_check_valid_arg.c 02_store_data.c 03_init_philo.c 04_init_fork.c 0
 all: $(NAME)
 
 $(NAME): $(MAINOBJ) $(OBJ)
-	$(CC) $(OBJ) $(MAINOBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(MAINOBJ) -o $(NAME)
 
 $(OBJPATH)/main.o: main.c | $(OBJPATH)
 	$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
@@ -28,5 +28,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+
+re: fclean all
 
 .PHONY: all clean fclean
