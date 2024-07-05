@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 17:24:21 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/04 20:13:28 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/05 10:12:45 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,11 @@ void	init_philo(t_philo *philo_array, t_program *program);
 // 04_init_fork.c
 void	init_fork(pthread_mutex_t *forks, t_philo *philos, t_program *program);
 
+// 05_create_thread.c
 void	create_thread(t_philo *philo_array, t_program *program);
+
+// 06_philo_routine.c
+void	*philo_routine(void *arg);
 
 // utils_1.c
 void	print_message(char *message, int fd);

@@ -6,30 +6,11 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:57:56 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/05 09:52:28 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/05 10:12:00 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	*philo_routine(void *arg)
-{
-	t_philo			*philo;
-	
-	philo = (t_philo *)arg;
-	if (philo->id % 2 == 0)
-		usleep(500);
-	pthread_mutex_lock(philo->r_fork);
-	print_state_change("has taken r_fork", philo, get_current_time());
-	pthread_mutex_lock(philo->l_fork);
-	print_state_change("has taken l_fork", philo, get_current_time());
-	philo->is_eating = philo->id;
-	print_state_change("is eating", philo, get_current_time());
-	printf("%d\n", philo->is_eating);
-	pthread_mutex_unlock(philo->l_fork);
-	pthread_mutex_unlock(philo->r_fork);
-	return (arg);
-}
 
 void	create_thread(t_philo *philo_array, t_program *program)
 {
