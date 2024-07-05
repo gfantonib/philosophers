@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:44:26 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/04 20:14:09 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/05 14:52:58 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	destroy_mutex(t_program *program, pthread_mutex_t *forks)
 	int	i;
 	
 	pthread_mutex_destroy(&program->print_mtx);
+	pthread_mutex_destroy(&program->died_mtx);
 	i = 0;
 	while (i < program->nbr_of_philo)
 	{
