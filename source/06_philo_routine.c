@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:11:39 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/05 10:14:38 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/05 10:36:08 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ void	eat(t_philo *philo)
 	print_state_change("has taken r_fork", philo, get_current_time());
 	pthread_mutex_lock(philo->l_fork);
 	print_state_change("has taken l_fork", philo, get_current_time());
-	philo->is_eating = philo->id;
+	philo->is_eating = 1;
 	print_state_change("is eating", philo, get_current_time());
-	printf("%d\n", philo->is_eating);
+	usleep(philo->time_to_eat);
+	philo->is_eating = 0;
 	pthread_mutex_unlock(philo->l_fork);
 	pthread_mutex_unlock(philo->r_fork);
 }
