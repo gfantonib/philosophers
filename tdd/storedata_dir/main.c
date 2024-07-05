@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 16:46:44 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/05 11:48:50 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/05 13:41:28 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	main(int argc, char *argv[])
 void	tdd_print_store_data(t_program *program)
 {
 	printf("%d |", program->nbr_of_philo);
+	printf(" %zu |", program->time_to_die);
 	printf(" %d |", program->time_to_eat);
-	printf(" %d |", program->time_to_die);
 	printf(" %d |", program->time_to_sleep);
 	printf(" %d\n", program->must_eat);
 }
