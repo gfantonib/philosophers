@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:11:39 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/05 12:26:07 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/05 12:28:19 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@ void	*philo_routine(void *arg)
 	t_philo			*philo;
 	
 	philo = (t_philo *)arg;
-	if (philo->id % 2 == 0)
-		eat_even(philo);
-	else
-		eat_odd(philo);
+	while (1)
+	{
+		if (philo->id % 2 == 0)
+			eat_even(philo);
+		else
+			eat_odd(philo);	
+	}
 	return (arg);
 }
 
