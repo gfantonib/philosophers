@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:11:39 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/05 12:28:19 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/05 12:43:24 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static void	eat_even(t_philo *philo)
 	print_state_change("is eating", philo, get_current_time());
 	usleep(philo->time_to_eat);
 	philo->is_eating = 0;
+	philo->last_meal = get_current_time();
 	pthread_mutex_unlock(philo->l_fork);
 	pthread_mutex_unlock(philo->r_fork);
 }
@@ -54,6 +55,7 @@ static void	eat_odd(t_philo *philo)
 	print_state_change("is eating", philo, get_current_time());
 	usleep(philo->time_to_eat);
 	philo->is_eating = 0;
+	philo->last_meal = get_current_time();
 	pthread_mutex_unlock(philo->r_fork);
 	pthread_mutex_unlock(philo->l_fork);
 }

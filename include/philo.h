@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 17:24:21 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/05 10:22:20 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/05 12:41:04 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_philo
 {
 	int				id;
 	int				is_eating;
+	size_t			last_meal;
 	int				nbr_of_philo;
 	int				time_to_die;
 	int				time_to_eat;
