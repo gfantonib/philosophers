@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 17:24:21 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/05 12:41:04 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/05 14:56:14 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ typedef struct s_philo
 	int				id;
 	int				is_eating;
 	size_t			last_meal;
+	int				*died;
 	int				nbr_of_philo;
-	int				time_to_die;
+	size_t			time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				must_eat;
@@ -33,16 +34,19 @@ typedef struct s_philo
 	pthread_mutex_t	*r_fork;
 	pthread_mutex_t	*l_fork;
 	pthread_mutex_t	*print_mtx;
+	pthread_mutex_t	*died_mtx;
 }	t_philo;
 
 typedef struct s_program
 {
 	int				nbr_of_philo;
-	int				time_to_die;
+	size_t			time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				must_eat;
+	int				died;
 	pthread_mutex_t	print_mtx;
+	pthread_mutex_t	died_mtx;
 }	t_program;
 
 // 01_check_valid_arg.c
@@ -62,6 +66,9 @@ void	create_thread(t_philo *philo_array, t_program *program);
 
 // 06_philo_routine.c
 void	*philo_routine(void *arg);
+
+// 07_footman_routine.c
+void	*footman_routine(void *arg);
 
 // utils_1.c
 void	print_message(char *message, int fd);
