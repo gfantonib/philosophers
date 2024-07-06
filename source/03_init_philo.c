@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:04:52 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/06 10:24:18 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/06 15:01:48 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	init_philo(t_philo *philo_array, t_program *program)
 	while (i < program->nbr_of_philo)
 	{
 		philo_array[i].id = i + 1;
-		philo_array[i].is_eating = -1;
-		philo_array[i].last_meal = -1;
+		philo_array[i].is_eating = 0;
+		philo_array[i].last_meal = get_current_time();
 		philo_array[i].died = &program->died;
 		philo_array[i].nbr_of_philo = program->nbr_of_philo;
 		philo_array[i].time_to_eat = program->time_to_eat;
