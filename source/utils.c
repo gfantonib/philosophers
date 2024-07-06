@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:44:26 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/05 14:52:58 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/06 13:56:00 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void	destroy_mutex(t_program *program, pthread_mutex_t *forks)
 
 void	print_state_change(char *message, t_philo *philo, size_t time)
 {	
+	if (*philo->died)
+		return ;
 	pthread_mutex_lock(philo->print_mtx);
 	printf("%ldms %d %s\n", time, philo->id, message);
 	pthread_mutex_unlock(philo->print_mtx);
