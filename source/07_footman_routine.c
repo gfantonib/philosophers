@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 12:54:47 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/06 10:27:02 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/06 11:34:34 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,13 @@ static int check_if_dead(t_philo *philo_array)
 	while (i < philo_array[0].nbr_of_philo)
 	{
 		if (is_dead(&philo_array[i]))
+		{
+			print_state_change("died", &philo_array[i], get_current_time());
+			pthread_mutex_lock(philo_array[i].died_mtx);
+			*philo_array[0].died = 1;
+			pthread_mutex_unlock(philo_array[i].died_mtx);
 			return (1);
+		}
 		i++;
 	}
 	return (0);
@@ -45,15 +51,8 @@ static int check_if_dead(t_philo *philo_array)
 static int	is_dead(t_philo *philo)
 {	
 	pthread_mutex_lock(philo->meal_mtx);
-	philo->last_meal = get_current_time();
 	if ((get_current_time() - philo->last_meal >= philo->time_to_die) && philo->is_eating == 0)
-	{
-		pthread_mutex_lock(philo->died_mtx);
-		*philo->died = 1;
-		print_state_change("died", philo, get_current_time());
-		pthread_mutex_unlock(philo->died_mtx);
 		return (pthread_mutex_unlock(philo->meal_mtx), 1);
-	}
 	pthread_mutex_unlock(philo->meal_mtx);
 	return (0);
 }
