@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 17:24:21 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/06 15:22:20 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/06 16:13:00 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,21 @@ void	create_thread(t_philo *philo_array, t_program *program);
 // 06_philo_routine.c
 void	*philo_routine(void *arg);
 
+// 06_utils.c
+int		dead_flag_off(t_philo *philo);
+void	lonely_philo(t_philo *philo);
+
 // 07_footman_routine.c
 void	*footman_routine(void *arg);
 
-// utils_1.c
+// utils.c
 void	print_message(char *message, int fd);
-int		ft_atoi(const char *str);
-size_t	ft_strlen(const char *s);
 void	destroy_mutex(t_program *program, pthread_mutex_t *forks);
 void	print_state_change(char *message, t_philo *philo, size_t time);
 size_t	get_current_time(void);
+
+// libft.c
+int		ft_atoi(const char *str);
+size_t	ft_strlen(const char *s);
 
 #endif

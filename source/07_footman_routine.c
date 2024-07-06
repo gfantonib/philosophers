@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 12:54:47 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/06 15:31:03 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/06 16:05:05 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	check_if_satisfied(t_philo *philo_array);
 
 void	*footman_routine(void *arg)
 {
-	t_philo *philo_array;
+	t_philo	*philo_array;
 
 	philo_array = (t_philo *)arg;
 	while (1)
@@ -31,7 +31,7 @@ void	*footman_routine(void *arg)
 	return (arg);
 }
 
-static int check_if_dead(t_philo *philo_array)
+static int	check_if_dead(t_philo *philo_array)
 {
 	int	i;
 
@@ -52,9 +52,10 @@ static int check_if_dead(t_philo *philo_array)
 }
 
 static int	is_dead(t_philo *philo)
-{	
+{
 	pthread_mutex_lock(philo->meal_mtx);
-	if ((get_current_time() - philo->last_meal >= philo->time_to_die) && philo->is_eating == 0)
+	if ((get_current_time() - philo->last_meal >= philo->time_to_die)
+		&& philo->is_eating == 0)
 		return (pthread_mutex_unlock(philo->meal_mtx), 1);
 	pthread_mutex_unlock(philo->meal_mtx);
 	return (0);

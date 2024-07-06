@@ -1,40 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_check_valid_arg.c                               :+:      :+:    :+:   */
+/*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 16:54:50 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/06 16:03:35 by gfantoni         ###   ########.fr       */
+/*   Created: 2024/07/06 16:11:34 by gfantoni          #+#    #+#             */
+/*   Updated: 2024/07/06 16:12:07 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static int	is_valid_nbr(char *argv[]);
-
-void	check_valid_arg(int argc, char *argv[])
+int	ft_atoi(const char *str)
 {
-	if (argc < 5 || argc > 6)
-		print_message("wrong argument count!\n", 2);
-	else if (!is_valid_nbr(++argv))
-		print_message("wrong argument type!\n", 2);
-	else
-		return ;
-	exit(1);
-}
+	int	i;
+	int	is_neg;
+	int	res;
 
-static int	is_valid_nbr(char *argv[])
-{
-	int		i;
-
+	if (*str == '\0')
+		return (0);
 	i = 0;
-	while (argv[i])
+	while ((str[i] >= '\t' && str[i] <= '\r') || (str[i] == ' '))
+		i++;
+	is_neg = 1;
+	if (str[i] == '-')
 	{
-		if (ft_atoi(argv[i]) == 0)
-			return (0);
+		is_neg = -1;
 		i++;
 	}
-	return (1);
+	else if (str[i] == '+')
+		i++;
+	res = 0;
+	while (str[i] >= '0' && str [i] <= '9')
+		res = (res * 10) + (str[i++] - '0');
+	return (res * is_neg);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	c;
+
+	c = 0;
+	while (s[c])
+		c++;
+	return (c);
 }

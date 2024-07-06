@@ -7,7 +7,7 @@ HEADER = -I$(INCPATH)
 OBJPATH = object
 MAINOBJ = $(OBJPATH)/main.o
 OBJ = $(SRCFILES:%.c=$(OBJPATH)/%.o)
-SRCFILES = 01_check_valid_arg.c 02_store_data.c 03_init_philo.c 04_init_fork.c 05_create_thread.c 06_philo_routine.c 07_footman_routine.c utils.c
+SRCFILES = 01_check_valid_arg.c 02_store_data.c 03_init_philo.c 04_init_fork.c 05_create_thread.c 06_philo_routine.c 06_utils.c 07_footman_routine.c utils.c libft.c
 
 all: $(NAME)
 

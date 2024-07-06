@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:44:26 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/06 13:56:00 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/06 16:12:16 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,51 +14,16 @@
 
 void	print_message(char *message, int fd)
 {
-	int len;
+	int	len;
 
 	len = ft_strlen(message);
 	write(fd, message, len);
 }
 
-int	ft_atoi(const char *str)
-{
-	int	i;
-	int	is_neg;
-	int	res;
-
-	if (*str == '\0')
-		return (0);
-	i = 0;
-	while ((str[i] >= '\t' && str[i] <= '\r') || (str[i] == ' '))
-		i++;
-	is_neg = 1;
-	if (str[i] == '-')
-	{
-		is_neg = -1;
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
-	res = 0;
-	while (str[i] >= '0' && str [i] <= '9')
-		res = (res * 10) + (str[i++] - '0');
-	return (res * is_neg);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	c;
-
-	c = 0;
-	while (s[c])
-		c++;
-	return (c);
-}
-
 void	destroy_mutex(t_program *program, pthread_mutex_t *forks)
 {
 	int	i;
-	
+
 	pthread_mutex_destroy(&program->print_mtx);
 	pthread_mutex_destroy(&program->died_mtx);
 	i = 0;
@@ -70,7 +35,7 @@ void	destroy_mutex(t_program *program, pthread_mutex_t *forks)
 }
 
 void	print_state_change(char *message, t_philo *philo, size_t time)
-{	
+{
 	if (*philo->died)
 		return ;
 	pthread_mutex_lock(philo->print_mtx);

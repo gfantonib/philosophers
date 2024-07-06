@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   06_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 16:46:44 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/06 16:14:47 by gfantoni         ###   ########.fr       */
+/*   Created: 2024/07/06 16:05:59 by gfantoni          #+#    #+#             */
+/*   Updated: 2024/07/06 16:06:52 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char *argv[])
+int	dead_flag_off(t_philo *philo)
 {
-	t_program		program;
-	t_philo			philo_array[200];
-	pthread_mutex_t	fork_array[200];
+	pthread_mutex_lock(philo->died_mtx);
+	if (*philo->died)
+		return (pthread_mutex_unlock(philo->died_mtx), 0);
+	pthread_mutex_unlock(philo->died_mtx);
+	return (1);
+}
 
-	check_valid_arg(argc, argv);
-	store_data(++argv, &program);
-	init_philo(philo_array, &program);
-	init_fork(fork_array, philo_array, &program);
-	create_thread(philo_array, &program);
-	destroy_mutex(&program, fork_array);
-	return (0);
+void	lonely_philo(t_philo *philo)
+{
+	pthread_mutex_lock(philo->r_fork);
+	print_state_change("has taken r_fork", philo, get_current_time());
+	usleep(1000 * philo->time_to_die);
+	pthread_mutex_unlock(philo->r_fork);
 }

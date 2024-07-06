@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:11:39 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/06 15:24:08 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/06 16:08:04 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 static void	eat_even(t_philo *philo);
 static void	eat_odd(t_philo *philo);
 static void	dream(t_philo *philo);
-static int	dead_flag_off(t_philo *philo);
-static void think(t_philo *philo);
-void		lonely_philo(t_philo *philo);
+static void	think(t_philo *philo);
 
 void	*philo_routine(void *arg)
 {
 	t_philo			*philo;
-	
+
 	philo = (t_philo *)arg;
 	while (dead_flag_off(philo))
 	{
@@ -39,23 +37,6 @@ void	*philo_routine(void *arg)
 		think(philo);
 	}
 	return (arg);
-}
-
-static int	dead_flag_off(t_philo *philo)
-{
-	pthread_mutex_lock(philo->died_mtx);
-	if (*philo->died)
-		return (pthread_mutex_unlock(philo->died_mtx), 0);
-	pthread_mutex_unlock(philo->died_mtx);
-	return (1);
-}
-
-void	lonely_philo(t_philo *philo)
-{
-	pthread_mutex_lock(philo->r_fork);
-	print_state_change("has taken r_fork", philo, get_current_time());
-	usleep(1000 * philo->time_to_die);
-	pthread_mutex_unlock(philo->r_fork);
 }
 
 static void	eat_even(t_philo *philo)
@@ -100,7 +81,7 @@ static void	dream(t_philo *philo)
 	usleep(1000 * philo->time_to_sleep);
 }
 
-static void think(t_philo *philo)
+static void	think(t_philo *philo)
 {
 	print_state_change("is thinking", philo, get_current_time());
 	usleep(10 * philo->time_to_sleep);
