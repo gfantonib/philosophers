@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:11:39 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/06 10:20:12 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/06 11:09:32 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ static void	eat_odd(t_philo *philo)
 
 static void	dream(t_philo *philo)
 {
+	print_state_change("is sleeping", philo, get_current_time());
 	usleep(1000 * philo->time_to_sleep);
 }
