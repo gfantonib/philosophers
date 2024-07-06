@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:11:39 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/06 12:42:10 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/06 13:32:21 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void	eat_even(t_philo *philo);
 static void	eat_odd(t_philo *philo);
 static void	dream(t_philo *philo);
 static int	dead_flag_off(t_philo *philo);
+static void think(t_philo *philo);
 
 void	*philo_routine(void *arg)
 {
@@ -29,8 +30,18 @@ void	*philo_routine(void *arg)
 		else
 			eat_odd(philo);
 		dream(philo);
+		think(philo);
 	}
 	return (arg);
+}
+
+static int	dead_flag_off(t_philo *philo)
+{
+	pthread_mutex_lock(philo->died_mtx);
+	if (*philo->died)
+		return (pthread_mutex_unlock(philo->died_mtx), 0);
+	pthread_mutex_unlock(philo->died_mtx);
+	return (1);
 }
 
 static void	eat_even(t_philo *philo)
@@ -73,12 +84,7 @@ static void	dream(t_philo *philo)
 	usleep(1010 * philo->time_to_sleep);
 }
 
-static int	dead_flag_off(t_philo *philo)
+static void think(t_philo *philo)
 {
-	pthread_mutex_lock(philo->died_mtx);
-	if (*philo->died)
-		return (pthread_mutex_unlock(philo->died_mtx), 0);
-	pthread_mutex_unlock(philo->died_mtx);
-	return (1);
-
+	print_state_change("is thinking", philo, get_current_time());
 }
