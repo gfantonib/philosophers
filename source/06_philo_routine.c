@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:11:39 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/05 17:23:49 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/06 10:20:12 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,11 @@ static void	eat_even(t_philo *philo)
 	print_state_change("has taken l_fork", philo, get_current_time());
 	philo->is_eating = 1;
 	print_state_change("is eating", philo, get_current_time());
+	pthread_mutex_lock(philo->meal_mtx);
+	philo->last_meal = get_current_time();
+	pthread_mutex_unlock(philo->meal_mtx);
 	usleep(1000 * philo->time_to_eat);
 	philo->is_eating = 0;
-	philo->last_meal = get_current_time();
 	pthread_mutex_unlock(philo->l_fork);
 	pthread_mutex_unlock(philo->r_fork);
 }
@@ -57,9 +59,11 @@ static void	eat_odd(t_philo *philo)
 	print_state_change("has taken r_fork", philo, get_current_time());
 	philo->is_eating = 1;
 	print_state_change("is eating", philo, get_current_time());
+	pthread_mutex_lock(philo->meal_mtx);
+	philo->last_meal = get_current_time();
+	pthread_mutex_unlock(philo->meal_mtx);
 	usleep(1000 * philo->time_to_eat);
 	philo->is_eating = 0;
-	philo->last_meal = get_current_time();
 	pthread_mutex_unlock(philo->r_fork);
 	pthread_mutex_unlock(philo->l_fork);
 }
