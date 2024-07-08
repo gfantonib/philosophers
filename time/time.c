@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:36:15 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/05 16:11:17 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/06 17:36:49 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,17 @@ int main(void)
 	struct timeval	time_struct;
 	int 			time;
 	size_t 			sec;
+	size_t 			year;
 	size_t 			microsec;
 
 	// microsec = get_current_time();
 	time = gettimeofday(&time_struct, NULL);
 	sec = time_struct.tv_sec;
 	microsec = time_struct.tv_usec;
+	year = sec / (60*60*24*360);
 	
 	printf("sec = %zu\n", sec);
+	printf("year = %zu\n", year);
 	printf("microsec = %zu\n", microsec);
 	// printf("time2 = %zu\n", time2);
 
