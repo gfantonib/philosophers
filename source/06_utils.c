@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 16:05:59 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/06 16:06:52 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/08 10:42:53 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	dead_flag_off(t_philo *philo)
 void	lonely_philo(t_philo *philo)
 {
 	pthread_mutex_lock(philo->r_fork);
-	print_state_change("has taken r_fork", philo, get_current_time());
+	print_state_change("has taken a fork", philo, get_current_time());
 	usleep(1000 * philo->time_to_die);
 	pthread_mutex_unlock(philo->r_fork);
 }

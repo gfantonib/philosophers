@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:11:39 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/06 16:08:04 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/08 10:40:42 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void	*philo_routine(void *arg)
 static void	eat_even(t_philo *philo)
 {
 	pthread_mutex_lock(philo->r_fork);
-	print_state_change("has taken r_fork", philo, get_current_time());
+	print_state_change("has taken a fork", philo, get_current_time());
 	pthread_mutex_lock(philo->l_fork);
-	print_state_change("has taken l_fork", philo, get_current_time());
+	print_state_change("has taken a fork", philo, get_current_time());
 	philo->is_eating = 1;
 	print_state_change("is eating", philo, get_current_time());
 	pthread_mutex_lock(philo->meal_mtx);
@@ -60,9 +60,9 @@ static void	eat_even(t_philo *philo)
 static void	eat_odd(t_philo *philo)
 {
 	pthread_mutex_lock(philo->l_fork);
-	print_state_change("has taken l_fork", philo, get_current_time());
+	print_state_change("has taken a fork", philo, get_current_time());
 	pthread_mutex_lock(philo->r_fork);
-	print_state_change("has taken r_fork", philo, get_current_time());
+	print_state_change("has taken a fork", philo, get_current_time());
 	philo->is_eating = 1;
 	print_state_change("is eating", philo, get_current_time());
 	pthread_mutex_lock(philo->meal_mtx);
