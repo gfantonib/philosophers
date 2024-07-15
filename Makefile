@@ -31,4 +31,11 @@ fclean: clean
 
 re: fclean all
 
+hel: all
+	valgrind \
+		--tool=helgrind \
+		--history-level=none \
+		-s \
+		./$(NAME) 5 1800 200 200 
+
 .PHONY: all clean fclean
