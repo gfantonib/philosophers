@@ -1,6 +1,6 @@
 NAME = philo
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -O3 -pthread
+CFLAGS = -Wall -Wextra -Werror -pthread
 SRCPATH = source
 INCPATH = include
 HEADER = -I$(INCPATH)
@@ -36,6 +36,9 @@ hel: all
 		--tool=helgrind \
 		--history-level=none \
 		-s \
-		./$(NAME) 5 1800 200 200 
+		./$(NAME) 5 1800 200 200
+
+val: all
+	valgrind ./$(NAME) 5 1800 200 200 
 
 .PHONY: all clean fclean
