@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:54:50 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/16 09:41:28 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/16 09:58:11 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	is_valid_nbr(char *argv[])
 	i = 0;
 	while (argv[i])
 	{
-		if (ft_atoi(argv[i]) == 0)
+		if (ft_atoi(argv[i]) <= 0)
 			return (0);
 		i++;
 	}
