@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 17:24:21 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/16 08:05:45 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/16 14:24:18 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,9 @@ void	lonely_philo(t_philo *philo);
 
 // 07_footman_routine.c
 void	*footman_routine(void *arg);
+
+// 08_init_mutex.c
+void	init_mutex(pthread_mutex_t	*fork_array);
 
 // utils.c
 void	print_message(char *message, int fd);

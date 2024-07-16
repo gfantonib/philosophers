@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   08_init_mutex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 16:46:44 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/16 14:23:03 by gfantoni         ###   ########.fr       */
+/*   Created: 2024/07/16 14:22:15 by gfantoni          #+#    #+#             */
+/*   Updated: 2024/07/16 14:23:15 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char *argv[])
+void	init_mutex(pthread_mutex_t	*fork_array)
 {
-	t_program		program;
-	t_philo			philo_array[200];
-	pthread_mutex_t	fork_array[200];
+	int	i;
 
-	check_valid_arg(argc, argv);
-	store_data(++argv, &program);
-	init_mutex(fork_array);
-	init_philo(philo_array, &program);
-	init_fork(fork_array, philo_array, &program);
-	create_thread(philo_array, &program);
-	destroy_mutex(&program, fork_array);
-	return (0);
+	i = 0;
+	while (i < 200)
+	{
+		pthread_mutex_init(&fork_array[i], NULL);
+		i++;
+	}
 }

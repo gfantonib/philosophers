@@ -23,4 +23,7 @@ void	store_data(char *argv[], t_program *program)
 	program->program_start = get_current_time();
 	if (argv[4])
 		program->must_eat = ft_atoi(argv[4]);
+	pthread_mutex_init(&program->print_mtx, NULL);
+	pthread_mutex_init(&program->meal_mtx, NULL);
+	pthread_mutex_init(&program->died_mtx, NULL);
 }
