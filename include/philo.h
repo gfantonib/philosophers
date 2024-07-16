@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 17:24:21 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/06 16:13:00 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/16 08:05:45 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_philo
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				must_eat;
+	size_t			program_start;
 	pthread_t		thread;
 	pthread_mutex_t	*r_fork;
 	pthread_mutex_t	*l_fork;
@@ -47,6 +48,7 @@ typedef struct s_program
 	int				time_to_sleep;
 	int				must_eat;
 	int				died;
+	size_t			program_start;
 	pthread_mutex_t	print_mtx;
 	pthread_mutex_t	died_mtx;
 	pthread_mutex_t	meal_mtx;

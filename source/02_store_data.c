@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 09:24:51 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/06 16:03:39 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/16 08:04:50 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	store_data(char *argv[], t_program *program)
 	program->time_to_sleep = ft_atoi(argv[3]);
 	program->must_eat = -1;
 	program->died = 0;
+	program->program_start = get_current_time();
 	if (argv[4])
 		program->must_eat = ft_atoi(argv[4]);
 }
