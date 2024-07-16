@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:54:50 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/06 16:03:35 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/16 09:41:28 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	check_valid_arg(int argc, char *argv[])
 	if (argc < 5 || argc > 6)
 		print_message("wrong argument count!\n", 2);
 	else if (!is_valid_nbr(++argv))
+		print_message("wrong argument type!\n", 2);
+	else if (ft_atoi(argv[0]) > 200)
 		print_message("wrong argument type!\n", 2);
 	else
 		return ;
