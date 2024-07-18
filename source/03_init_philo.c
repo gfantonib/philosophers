@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:04:52 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/18 09:20:52 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/18 09:37:11 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	init_philo(t_philo *philo_array, t_program *program)
 		philo_array[i].print_mtx = &program->print_mtx;
 		philo_array[i].died_mtx = &program->died_mtx;
 		pthread_mutex_init(&philo_array[i].meal_mtx, NULL);
+		pthread_mutex_init(&philo_array[i].is_eating_mtx, NULL);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:44:26 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/18 08:52:31 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/18 09:39:36 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_message(char *message, int fd)
 	write(fd, message, len);
 }
 
-void	destroy_mutex(t_program *program, pthread_mutex_t *forks)
+void	destroy_mutex(t_program *program, pthread_mutex_t *forks, t_philo *philo_array)
 {
 	int	i;
 
@@ -30,6 +30,8 @@ void	destroy_mutex(t_program *program, pthread_mutex_t *forks)
 	while (i < program->nbr_of_philo)
 	{
 		pthread_mutex_destroy(&forks[i]);
+		pthread_mutex_destroy(&philo_array[i].is_eating_mtx);
+		pthread_mutex_destroy(&philo_array[i].meal_mtx);
 		i++;
 	}
 }

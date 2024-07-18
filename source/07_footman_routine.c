@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 12:54:47 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/18 09:21:50 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/18 09:44:19 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,15 @@ static int	check_if_dead(t_philo *philo_array)
 static int	is_dead(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->meal_mtx);
+	pthread_mutex_lock(&philo->is_eating_mtx);
 	if (((get_current_time() - philo->program_start) - philo->last_meal >= philo->time_to_die)
 		&& philo->is_eating == 0)
-		return (pthread_mutex_unlock(&philo->meal_mtx), 1);
+	{
+		pthread_mutex_unlock(&philo->is_eating_mtx);
+		pthread_mutex_unlock(&philo->meal_mtx);
+		return (1);
+	}
+	pthread_mutex_unlock(&philo->is_eating_mtx);
 	pthread_mutex_unlock(&philo->meal_mtx);
 	return (0);
 }

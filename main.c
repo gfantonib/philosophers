@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 16:46:44 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/16 14:23:03 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/18 09:37:57 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int	main(int argc, char *argv[])
 	init_philo(philo_array, &program);
 	init_fork(fork_array, philo_array, &program);
 	create_thread(philo_array, &program);
-	destroy_mutex(&program, fork_array);
+	destroy_mutex(&program, fork_array, philo_array);
 	return (0);
 }
