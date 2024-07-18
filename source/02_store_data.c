@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 09:24:51 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/16 08:04:50 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/18 09:19:24 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	store_data(char *argv[], t_program *program)
 	if (argv[4])
 		program->must_eat = ft_atoi(argv[4]);
 	pthread_mutex_init(&program->print_mtx, NULL);
-	pthread_mutex_init(&program->meal_mtx, NULL);
+	// pthread_mutex_init(&program->meal_mtx, NULL);
 	pthread_mutex_init(&program->died_mtx, NULL);
 }
