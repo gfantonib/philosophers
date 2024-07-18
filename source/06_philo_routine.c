@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:11:39 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/18 09:42:19 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/18 09:58:59 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,16 @@ void	*philo_routine(void *arg)
 static void	eat_even(t_philo *philo)
 {
 	pthread_mutex_lock(philo->r_fork);
-	print_state_change("has taken a fork", philo, get_current_time() - philo->program_start);
+	print_state_change("has taken a fork", philo,
+		get_current_time() - philo->program_start);
 	pthread_mutex_lock(philo->l_fork);
-	print_state_change("has taken a fork", philo, get_current_time() - philo->program_start);
+	print_state_change("has taken a fork", philo,
+		get_current_time() - philo->program_start);
 	pthread_mutex_lock(&philo->is_eating_mtx);
 	philo->is_eating = 1;
 	pthread_mutex_unlock(&philo->is_eating_mtx);
-	print_state_change("is eating", philo, get_current_time() - philo->program_start);
+	print_state_change("is eating", philo,
+		get_current_time() - philo->program_start);
 	pthread_mutex_lock(&philo->meal_mtx);
 	philo->last_meal = get_current_time() - philo->program_start;
 	philo->eaten++;
@@ -64,13 +67,16 @@ static void	eat_even(t_philo *philo)
 static void	eat_odd(t_philo *philo)
 {
 	pthread_mutex_lock(philo->l_fork);
-	print_state_change("has taken a fork", philo, get_current_time() - philo->program_start);
+	print_state_change("has taken a fork", philo,
+		get_current_time() - philo->program_start);
 	pthread_mutex_lock(philo->r_fork);
-	print_state_change("has taken a fork", philo, get_current_time() - philo->program_start);
+	print_state_change("has taken a fork", philo,
+		get_current_time() - philo->program_start);
 	pthread_mutex_lock(&philo->is_eating_mtx);
 	philo->is_eating = 1;
 	pthread_mutex_unlock(&philo->is_eating_mtx);
-	print_state_change("is eating", philo, get_current_time() - philo->program_start);
+	print_state_change("is eating", philo,
+		get_current_time() - philo->program_start);
 	pthread_mutex_lock(&philo->meal_mtx);
 	philo->last_meal = get_current_time() - philo->program_start;
 	philo->eaten++;
@@ -85,12 +91,14 @@ static void	eat_odd(t_philo *philo)
 
 static void	dream(t_philo *philo)
 {
-	print_state_change("is sleeping", philo, get_current_time() - philo->program_start);
+	print_state_change("is sleeping", philo,
+		get_current_time() - philo->program_start);
 	usleep(1000 * philo->time_to_sleep);
 }
 
 static void	think(t_philo *philo)
 {
-	print_state_change("is thinking", philo, get_current_time() - philo->program_start);
+	print_state_change("is thinking", philo,
+		get_current_time() - philo->program_start);
 	usleep(10 * philo->time_to_sleep);
 }

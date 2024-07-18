@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 17:24:21 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/18 09:38:41 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/18 09:57:53 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ void	init_mutex(pthread_mutex_t	*fork_array);
 
 // utils.c
 void	print_message(char *message, int fd);
-void	destroy_mutex(t_program *program, pthread_mutex_t *forks, t_philo *philo_array);
+void	destroy_mutex(t_program *program, pthread_mutex_t *forks,
+			t_philo *philo_array);
 void	print_state_change(char *message, t_philo *philo, size_t time);
 size_t	get_current_time(void);
 
