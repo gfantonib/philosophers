@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:44:26 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/18 09:59:45 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/22 13:57:43 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	destroy_mutex(t_program *program, pthread_mutex_t *forks,
 		pthread_mutex_destroy(&forks[i]);
 		pthread_mutex_destroy(&philo_array[i].is_eating_mtx);
 		pthread_mutex_destroy(&philo_array[i].meal_mtx);
+		pthread_mutex_destroy(&philo_array[i].eaten_mtx);
 		i++;
 	}
 }

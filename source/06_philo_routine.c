@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:11:39 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/18 09:58:59 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/22 13:59:15 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ static void	eat_even(t_philo *philo)
 		get_current_time() - philo->program_start);
 	pthread_mutex_lock(&philo->meal_mtx);
 	philo->last_meal = get_current_time() - philo->program_start;
+	pthread_mutex_lock(&philo->eaten_mtx);
 	philo->eaten++;
+	pthread_mutex_unlock(&philo->eaten_mtx);
 	pthread_mutex_unlock(&philo->meal_mtx);
 	usleep(1000 * philo->time_to_eat);
 	pthread_mutex_lock(&philo->is_eating_mtx);
@@ -79,7 +81,9 @@ static void	eat_odd(t_philo *philo)
 		get_current_time() - philo->program_start);
 	pthread_mutex_lock(&philo->meal_mtx);
 	philo->last_meal = get_current_time() - philo->program_start;
+	pthread_mutex_lock(&philo->eaten_mtx);
 	philo->eaten++;
+	pthread_mutex_unlock(&philo->eaten_mtx);
 	pthread_mutex_unlock(&philo->meal_mtx);
 	usleep(1000 * philo->time_to_eat);
 	pthread_mutex_lock(&philo->is_eating_mtx);

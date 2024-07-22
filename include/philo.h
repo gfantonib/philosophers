@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 17:24:21 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/18 09:57:53 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/22 14:16:43 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_philo
 	pthread_mutex_t	*died_mtx;
 	pthread_mutex_t	meal_mtx;
 	pthread_mutex_t	is_eating_mtx;
+	pthread_mutex_t	eaten_mtx;
 }	t_philo;
 
 typedef struct s_program
@@ -52,7 +53,6 @@ typedef struct s_program
 	size_t			program_start;
 	pthread_mutex_t	print_mtx;
 	pthread_mutex_t	died_mtx;
-	// pthread_mutex_t	meal_mtx;
 }	t_program;
 
 // 01_check_valid_arg.c

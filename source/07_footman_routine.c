@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 12:54:47 by gfantoni          #+#    #+#             */
-/*   Updated: 2024/07/18 09:59:29 by gfantoni         ###   ########.fr       */
+/*   Updated: 2024/07/22 14:10:11 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,10 @@ static int	check_if_satisfied(t_philo *philo_array)
 	i = 0;
 	while (i < philo_array[0].nbr_of_philo)
 	{
+		pthread_mutex_lock(&philo_array[i].eaten_mtx);
 		if (philo_array[i].eaten != philo_array[0].must_eat)
-			return (0);
+			return (pthread_mutex_unlock(&philo_array[i].eaten_mtx), 0);
+		pthread_mutex_unlock(&philo_array[i].eaten_mtx);
 		i++;
 	}
 	pthread_mutex_lock(philo_array[0].died_mtx);
